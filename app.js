@@ -8,7 +8,11 @@ app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
 //fire controllers
-todoController(app);
+//todoController(app);
+
+app.get('/', (req, res) => {
+  res.end('Welcome!');
+});
 
 //listen to port
 app.listen(process.env.PORT || 3000, () => {
