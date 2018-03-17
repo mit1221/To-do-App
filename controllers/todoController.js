@@ -23,6 +23,10 @@ module.exports = function(app){
     });
   });
 
+  app.get('*', function(req, res){
+    res.end('404! There is no webpage with the url: ' + __dirname + req.url);
+  });
+
   app.post('/todo', urlencodedParser, function(req, res){
     var newTodo = Todo(req.body).save(function(err, data){
       if (err) throw err;
