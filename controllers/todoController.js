@@ -1,8 +1,9 @@
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+require('dotenv').config();
 
 //Database connection
-mongoose.connect('mongodb://test:test@ds249398.mlab.com:49398/mit1221');
+mongoose.connect('mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PASS + '@ds249398.mlab.com:49398/mit1221');
 
 //Schema
 var todoSchema = new mongoose.Schema({
